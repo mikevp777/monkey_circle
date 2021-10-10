@@ -20,11 +20,11 @@ class MyCircle:
         for x in range(a-r, a+r+1):
             self.draw_circle_points_at_x(x)
 
-    def draw_circle_points_at_x(self, x, y=None, a=None, b=None, r=None):
-        y = 350 if y is None else y
+    def draw_circle_points_at_x(self, x, a=None, b=None, r=None):
         a = 0 if a is None else a
         b = 0 if b is None else b
         r = 0 if r is None else r
+        y = 350  # Почему бы и нет
         self.draw_point(x, y)
 
 
