@@ -21,11 +21,12 @@ class MyCircle:
             self._draw_circle_points_at_x(x, a, b, r)
 
     def _draw_circle_points_at_x(self, x, a, b, r):
-        y = self._find_y(x, a, b, r)
-        self.draw_point(x, y)
+        y1, y2 = self._find_y(x, a, b, r)
+        self.draw_point(x, y1)
+        self.draw_point(x, y2)
 
     def _find_y(self, x, a, b, r):
-        return 350  # Почему бы и нет
+        return 350, 150  # Почему бы и нет
 
 
 def draw_all():
