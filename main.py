@@ -1,4 +1,4 @@
-import random
+import math
 
 import pygame as pygame
 
@@ -26,7 +26,10 @@ class MyCircle:
         self.draw_point(x, y2)
 
     def _find_y(self, x, a, b, r):
-        return 350, 150  # Почему бы и нет
+        # (x-a)**2 + (y-b)**2 = r**2
+        y1 = int(math.sqrt(r**2 - (x-a)**2))+b
+        y2 = int(-math.sqrt(r**2 - (x-a)**2))+b
+        return y1, y2
 
 
 def draw_all():
