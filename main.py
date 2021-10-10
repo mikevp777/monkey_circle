@@ -17,10 +17,12 @@ class MyCircle:
 
     def draw_circle_monkey(self, a, b):
         r = self.radius
-        for x in range(a-r, a+r+1):
+        for x in range(a-r+1, a+r+1):
+            x0 = x-1
+            y01, y02 = self._find_y_coordinates(x0, a, b)
             y1, y2 = self._find_y_coordinates(x, a, b)
-            self.draw_point(x, y1)
-            self.draw_point(x, y2)
+            pygame.draw.line(self.screen, self.color, (x0, y01), (x, y1))
+            pygame.draw.line(self.screen, self.color, (x0, y02), (x, y2))
 
     def _find_y_coordinates(self, x, a, b):
         r = self.radius
@@ -51,7 +53,6 @@ def draw_all():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 # my_circle.draw_circle_pygame(*event.pos)
-                # my_circle.draw_point(*event.pos)
                 my_circle.draw_circle_monkey(*event.pos)
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
