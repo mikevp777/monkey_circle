@@ -18,14 +18,14 @@ class MyCircle:
     def draw_circle_monkey(self, a, b):
         r = self.radius
         for x in range(a-r, a+r+1):
-            self.draw_circle_points_at_x(x)
+            self._draw_circle_points_at_x(x, a, b, r)
 
-    def draw_circle_points_at_x(self, x, a=None, b=None, r=None):
-        a = 0 if a is None else a
-        b = 0 if b is None else b
-        r = 0 if r is None else r
-        y = x*x  # Почему бы и нет
+    def _draw_circle_points_at_x(self, x, a, b, r):
+        y = self._find_y(x, a, b, r)
         self.draw_point(x, y)
+
+    def _find_y(self, x, a, b, r):
+        return 350  # Почему бы и нет
 
 
 def draw_all():
