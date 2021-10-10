@@ -18,14 +18,12 @@ class MyCircle:
     def draw_circle_monkey(self, a, b):
         r = self.radius
         for x in range(a-r, a+r+1):
-            self._draw_circle_points_at_x(x, a, b, r)
+            y1, y2 = self._find_y_coordinates(x, a, b)
+            self.draw_point(x, y1)
+            self.draw_point(x, y2)
 
-    def _draw_circle_points_at_x(self, x, a, b, r):
-        y1, y2 = self._find_y(x, a, b, r)
-        self.draw_point(x, y1)
-        self.draw_point(x, y2)
-
-    def _find_y(self, x, a, b, r):
+    def _find_y_coordinates(self, x, a, b):
+        r = self.radius
         # (x-a)**2 + (y-b)**2 = r**2
         y1 = int(math.sqrt(r**2 - (x-a)**2))+b
         y2 = int(-math.sqrt(r**2 - (x-a)**2))+b
