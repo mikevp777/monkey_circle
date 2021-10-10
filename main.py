@@ -1,3 +1,5 @@
+import random
+
 import pygame as pygame
 
 
@@ -9,6 +11,21 @@ class MyCircle:
 
     def draw_circle_pygame(self, x, y):
         pygame.draw.circle(self.screen, self.color, [x, y], self.radius, 1)
+
+    def draw_point(self, x, y):
+        self.screen.set_at((x, y), self.color)
+
+    def draw_circle_monkey(self, a, b):
+        r = self.radius
+        for x in range(a-r, a+r+1):
+            self.draw_circle_points_at_x(x)
+
+    def draw_circle_points_at_x(self, x, y=None, a=None, b=None, r=None):
+        y = 350 if y is None else y
+        a = 0 if a is None else a
+        b = 0 if b is None else b
+        r = 0 if r is None else r
+        self.draw_point(x, y)
 
 
 def draw_all():
@@ -31,7 +48,9 @@ def draw_all():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                my_circle.draw_circle_pygame(*event.pos)
+                # my_circle.draw_circle_pygame(*event.pos)
+                # my_circle.draw_point(*event.pos)
+                my_circle.draw_circle_monkey(*event.pos)
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     running = False
