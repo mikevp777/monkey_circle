@@ -24,7 +24,7 @@ class MyCircle:
         a = 0 if a is None else a
         b = 0 if b is None else b
         r = 0 if r is None else r
-        y = 350  # Почему бы и нет
+        y = x  # Почему бы и нет
         self.draw_point(x, y)
 
 
